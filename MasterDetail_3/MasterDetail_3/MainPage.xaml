@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MasterDetail_3"
+             x:Class="MasterDetail_3.MainPage" >
+
+    <MasterDetailPage.Master>
+        <!-- FontSize: Micro:10 Small:14 Default:14 Medium:18 Large:22 -->
+        <!-- Title is mandatory for theMasterDetailPage.Master content -->
+        <ContentPage Padding="10" BackgroundColor="Black" Title="Master" >
+                <!--StackLayout Margin="5,10,5,5" -->
+                <StackLayout >
+                    <Label Text="Master Page Menu" TextColor="White"/>
+                    <Image Source="bepo1.jpg" />
+                    <ListView x:Name="masterListView" RowHeight="25" SeparatorVisibility="None" 
+                              ItemSelected="masterListView_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <!-- each MenuItem is the Binding Context for each item in ListView -->
+                                <!--TextCell Text="{Binding Name}" TextColor="White"/-->
+                                <ImageCell Text="{Binding Name}" ImageSource="{Binding Image}" TextColor="White" Height="80"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                <Label Text="Help" TextColor="White" />
+                <Label Text="About" TextColor="White" />
+            </StackLayout>
+        </ContentPage>
+
+    </MasterDetailPage.Master>
+
+    <!-- Detail Page content is generated dynamically in the code behind -->
+    <MasterDetailPage.Detail>
+        <ContentPage />
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
